@@ -30,6 +30,7 @@ body{
     border: 2px solid teal;
     position: relative;
     box-shadow: 0 2vw 3.5vw -1vw teal;
+    cursor: pointer;
 }
 
 .dot{
@@ -138,6 +139,7 @@ span {
 
     width: 20%;
     text-align: center;
+    cursor: pointer;
   }
 
   .time{
@@ -158,6 +160,8 @@ span {
 
     width: 20%;
     text-align: center;
+
+    cursor: pointer;
   }
 
   .date{
@@ -168,6 +172,12 @@ span {
     margin-left: -2%;
     border-radius: 10px;
     box-shadow: 0px 10px 30px teal;
+  }
+
+  .day{
+    color: teal;
+    font-weight: bolder;
+    
   }
 
 
