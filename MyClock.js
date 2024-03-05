@@ -21,7 +21,7 @@ function clock(){
 
     // For Digital Clock
     let placeForDigitalclock = document.querySelector('#time');
-    let amOrPm = (h <= 12)?'AM' : 'PM';
+    let amOrPm = (h < 12)?'AM' : 'PM';
     placeForDigitalclock.innerHTML = `${h} : ${m} : ${s}  ${amOrPm}`;
 }
 
