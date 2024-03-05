@@ -3,6 +3,13 @@
     margin: 2px;
     padding: 2px;
 } */
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 body{
     margin: 0%;
@@ -100,6 +107,7 @@ span {
   .h3, .h6, .h9, .h12{
     color : teal;
   }
+
   .h3{
     position: absolute;
     right: 2%;
@@ -107,14 +115,15 @@ span {
   }
   .h6{
     position: absolute;
-    left: 2%;
-    top:50%;
-  }
-  .h9{
-    position: absolute;
     left : 50%;
     bottom: 2%;
   }
+  .h9{
+    position: absolute;
+    left: 2%;
+    top:50%;
+  }
+  
   .h12{
     position: absolute;
     left: 50%;
@@ -125,5 +134,78 @@ span {
   .digital-clock{
     position: fixed;
     top : 1%;
-    left : 50%;
+    left : 40%;
+
+    width: 20%;
+    text-align: center;
+  }
+
+  .time{
+    font-size: 2rem;
+    font-family: anton;
+    width: auto;
+    padding: 20px;
+    margin-left: -2%;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px teal;
+  }
+
+  /* Date Display */
+  .date-container{
+    position: fixed;
+    left: 40%;
+    bottom: 0%;
+
+    width: 20%;
+    text-align: center;
+  }
+
+  .date{
+    font-size: 2rem;
+    font-family: anton;
+    width: auto;
+    padding: 20px;
+    margin-left: -2%;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px teal;
+  }
+
+
+  @media only screen and (max-width: 700px) {
+    .digital-clock{
+      position: fixed;
+      top : 1%;
+      left : 40%;
+  
+      width: 50%;
+      text-align: center;
+    }
+
+    .date-container{
+      position: fixed;
+      left: 40%;
+      bottom: 0%;
+  
+      width: 50%;
+      text-align: center;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .digital-clock{
+      position: fixed;
+      top : 1%;
+      left : 0%;
+  
+      width: 100%;
+      text-align: center;
+    }
+
+    .date-container{
+      position: fixed;
+      left: 0%;
+      bottom: 0%;
+  
+      width: 100%;
+      text-align: center;
+    }
   }
