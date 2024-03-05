@@ -26,13 +26,26 @@ function clock(){
 }
 
 function displayDate(){
-    let date = new Date();
-    let day = date.getDate();
-    let month = date.getMonth();
-    let fullyear = date.getFullYear();
+    let date = new Date();      // Getting the day
 
+    let day = date.getDate();   // Current date
+    let month = date.getMonth();    // Current Month
+    let fullyear = date.getFullYear(); // Current Year
+
+    let dayOfWeekInNumber = date.getDay();  // Day of the week
+    let dayOfWeek;
+    switch(dayOfWeekInNumber){
+        case 1 : dayOfWeek = 'Monday'; break;
+        case 2 : dayOfWeek = 'Tuesday'; break;
+        case 3 : dayOfWeek = 'Wednesday'; break;
+        case 4 : dayOfWeek = 'Thursday'; break;
+        case 5 : dayOfWeek = 'Friday'; break;
+        case 6 : dayOfWeek = 'Saturday'; break;
+        case 7 : dayOfWeek = 'Sunday'; break;
+    }
+    //console.log(dayOfWeek);
     let placeForDate = document.querySelector('.date-container #date');
-    placeForDate.innerHTML = `${day}-${month}-${fullyear}`;
+    placeForDate.innerHTML = `${day}-${month}-${fullyear}  <span class="day">${dayOfWeek}</span>`;
 };
 
 document.addEventListener('DOMContentLoaded',function(){
