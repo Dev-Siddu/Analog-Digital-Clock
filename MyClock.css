@@ -1,0 +1,129 @@
+/* *{
+    border: 1px solid green;
+    margin: 2px;
+    padding: 2px;
+} */
+
+body{
+    margin: 0%;
+    padding: 0%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ------------------------- */
+
+.clock{
+    width: 300px;
+    height: 300px;
+    /* border-radius: 50%; */
+    border: 2px solid teal;
+    position: relative;
+    box-shadow: 0 2vw 3.5vw -1vw teal;
+}
+
+.dot{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ccc;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+}
+
+.hour-hand{
+    position: absolute;
+    z-index: 5; 
+    width: 4px;
+    height: 65px;
+    background: #000;
+    top: 79px;
+    left: 50%;
+    transform-origin: 50% 72px;
+    margin-left: -2px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    /* transform: rotate(10deg); */
+}   
+
+.minute-hand{
+    position:absolute;
+    z-index: 6;
+    width: 4px;
+    height: 100px;
+    background: gold;
+    top: 46px;
+    left: 50%;
+    margin-left: -2px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform-origin: 50% 105px;
+    /* transform: rotate(90deg); */
+}
+
+.second-hand{
+    position: absolute;
+    z-index: 7;
+    width: 2px;
+    height: 120px;
+    background: rgb(255, 0, 0);
+    top: 26px;
+    lefT: 50%;
+    margin-left: -1px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform-origin: 50% 125px;
+
+    /* transition: transform;  */
+    /* transition-timing-function: ease-in; */
+    /* transform: rotate(180deg); */
+}
+
+span {
+    display: inline-block;
+    position: absolute;
+    color: #333;
+    font-size: 22px;
+    font-family: 'Poiret One';
+    font-weight: 700;
+    z-index: 4;
+  }
+
+  .h3, .h6, .h9, .h12{
+    color : teal;
+  }
+  .h3{
+    position: absolute;
+    right: 2%;
+    top : 50%;
+  }
+  .h6{
+    position: absolute;
+    left: 2%;
+    top:50%;
+  }
+  .h9{
+    position: absolute;
+    left : 50%;
+    bottom: 2%;
+  }
+  .h12{
+    position: absolute;
+    left: 50%;
+    top: 2%;
+  }
+
+  /* Digital Clock */
+  .digital-clock{
+    position: fixed;
+    top : 1%;
+    left : 50%;
+  }
