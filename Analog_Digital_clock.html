@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock | Digital Clock</title>
+    <link rel="stylesheet" href="MyClock.css">
+    <script src="MyClock.js"></script>
+    <script src="MyClock.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0%;
+            margin: 0%;
+
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+
+            /* border: 1px solid green; */
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+        }
+
+        @media screen and (width < 700px ) {
+            .container {
+                height: 100vh;
+                width: 100%;
+
+                /* border: 1px solid green; */
+
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(2,1fr);
+                row-gap: 2rem;
+            }
+        }
+
+        .clock-container {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            row-gap: 2rem;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .us-d-clock-item,
+        .ist-d-clock-item {
+            align-self: self-start;
+        }
+
+        .us-date-item,
+        .ist-date-item {
+            align-self: self-end;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <div class="item ist-clock">
+            <!-- Container for IST Clock  -->
+            <div class="clock-container">
+                <div class="ist-d-clock-item">
+                    <!-- Digital Clock -->
+                    <div class="digital-clock">
+                        <div class="time" id="time"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- Analog clock (Indian standard time) -->
+                    <label class="ist-label">Indian Standard Time (+5:30)</label>
+                    <div class="clock">
+                        <div class="dot">*</div>
+
+                        <div class="hour-hand"></div>
+                        <div class="minute-hand"></div>
+                        <div class="second-hand"></div>
+
+                        <div>
+                            <span class="h3">3</span>
+                            <span class="h6">6</span>
+                            <span class="h9">9</span>
+                            <span class="h12">12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ist-date-item">
+                    <!-- Date -->
+                    <div class="date-container">
+                        <div class="date" id="date"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item usa-clock">
+            <div class="clock-container">
+                <div class="item us-d-clock-item">
+                    <div class="us-digital-clock">
+                        <div class="time" id="time"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- Analog clock (en-us / New York) -->
+                    <label class="us-label">America / New York (-5:00)</label>
+                    <div class="us-clock">
+                        <div class="dot">*</div>
+
+                        <div class="us-hour-hand"></div>
+                        <div class="us-minute-hand"></div>
+                        <div class="us-second-hand"></div>
+
+                        <div>
+                            <span class="h3">3</span>
+                            <span class="h6">6</span>
+                            <span class="h9">9</span>
+                            <span class="h12">12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="us-date-item">
+                    <div class="us-date-container">
+                        <div class="date" id="date"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
