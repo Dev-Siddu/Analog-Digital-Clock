@@ -33,7 +33,6 @@ body{
 .ist{
   margin-left: 2%;
   width: 30%;
-  /* border: 1px solid green; */
 }
 
 .ist-label-container{
@@ -90,7 +89,6 @@ body{
     margin-left: -2px;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    /* transform: rotate(10deg); */
 }   
 
 .minute-hand, .us-minute-hand{
@@ -105,7 +103,6 @@ body{
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     transform-origin: 50% 105px;
-    /* transform: rotate(90deg); */
 }
 
 .second-hand,.us-second-hand{
@@ -120,10 +117,6 @@ body{
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     transform-origin: 50% 125px;
-
-    /* transition: transform;  */
-    /* transition-timing-function: ease-in; */
-    /* transform: rotate(180deg); */
 }
 
 span {
@@ -165,24 +158,14 @@ span {
   /* Digital Clock */
   .digital-clock{
     width: inherit;
-    position: absolute;
-    top : 1%;
-    left : 2%;
-
     text-align: center;
     cursor: pointer;
   }
   .us-digital-clock{
     width: inherit;
-    position: absolute;
-    top: 1%;
-    right: 2%;
   }
   .us-date-container{
     width: inherit;
-    position: absolute;
-    bottom: 1%;
-    right: 2%;
   }
   .time{
     font-size: 2rem;
@@ -197,12 +180,7 @@ span {
   /* Date Display */
   .date-container{
     width: inherit;
-    position: fixed;
-    left: 2%;
-    bottom: 0%;
-
     text-align: center;
-
     cursor: pointer;
   }
 
@@ -230,38 +208,22 @@ span {
 
   @media only screen and (max-width: 700px) {
     .digital-clock{
-      position: fixed;
-      top : 1%;
-      left : 40%;
-  
-      width: 50%;
-      text-align: center;
-    }
-
-    .date-container{
-      position: fixed;
-      left: 40%;
-      bottom: 0%;
-  
-      width: 50%;
-      text-align: center;
-    }
-  }
-  @media only screen and (max-width: 500px) {
-    .digital-clock{
-      position: fixed;
-      top : 1%;
-      left : 0%;
-  
       width: 100%;
       text-align: center;
     }
 
     .date-container{
-      position: fixed;
-      left: 0%;
-      bottom: 0%;
-  
+      width: 100%;
+      text-align: center;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .digital-clock{
+      width: 100%;
+      text-align: center;
+    }
+
+    .date-container{
       width: 100%;
       text-align: center;
     }
