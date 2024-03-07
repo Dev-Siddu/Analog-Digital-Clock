@@ -52,10 +52,10 @@ body{
 .clock, .us-clock{
     width: 300px;
     height: 300px;
-    /* border-radius: 50%; */
-    border: 2px solid teal;
+    border-radius: 50%;
+    /* border: 0px solid teal; */
     position: relative;
-    box-shadow: 0 2vw 3.5vw -1vw teal;
+    box-shadow: 0 1vw 3.5vw -1vw teal;
     cursor: pointer;
 }
 
