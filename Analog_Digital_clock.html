@@ -13,6 +13,23 @@
             box-sizing: border-box;
         }
 
+        /* For Dark & Light Mode  */
+        html {
+            color-scheme: light dark;
+        }
+
+        html {
+            --bg-color: #ffffff;
+            --txt-color: #000000;
+        }
+
+        @supports (background-color: Canvas) and (color: CanvasText) {
+            :root {
+                --bg-color: Canvas;
+                --txt-color: CanvasText;
+            }
+        }
+
         body {
             padding: 0%;
             margin: 0%;
@@ -32,7 +49,7 @@
 
         }
 
-        @media screen and (width < 700px ) {
+        @media screen and (width < 700px) {
             .container {
                 height: 100vh;
                 width: 100%;
@@ -41,7 +58,7 @@
 
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
-                grid-template-rows: repeat(2,1fr);
+                grid-template-rows: repeat(2, 1fr);
                 row-gap: 2rem;
             }
         }
