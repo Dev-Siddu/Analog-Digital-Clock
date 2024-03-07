@@ -80,9 +80,9 @@ function istDisplayDate(){
 };
 
 function usDisplayDate(){
-    let date = new Date(); // Getting the current date & Time
-    let usDateTime = date.toLocaleString('en-us',{timeZone : 'America/New_York'});
-    let d = new Date(usDateTime);
+    let d = new Date(); // Getting the current date & Time
+    let usDateTime = d.toLocaleString('en-us',{timeZone : 'America/New_York'});
+    let date = new Date(usDateTime);
 
     let day = date.getDate();   // Current date
     let month = date.getMonth();    // Current Month
