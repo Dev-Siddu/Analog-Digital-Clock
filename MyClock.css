@@ -4,24 +4,26 @@
     padding: 2px;
 } */
 /* Google font */
+
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 .anton-regular {
   font-family: "Anton", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-body{
-    margin: 0%;
-    padding: 0%;
-    height: 100vh;
+body {
+  margin: 0%;
+  padding: 0%;
+  height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.my-flex{
+.my-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,201 +32,243 @@ body{
 }
 
 /* ------------------------- */
-.ist{
+.ist {
   margin-left: 2%;
   width: 30%;
 }
 
-.ist-label-container{
+.ist-label-container {
   width: inherit;
 }
-.ist-label, .us-label{
+
+.ist-label,
+.us-label {
   box-sizing: border-box;
   display: block;
   width: 300px;
   padding: 5px;
   font-size: 28px;
   text-align: center;
-  color : teal;
+  color: teal;
   text-shadow: 0px 0px 5px grey;
 }
 
-.clock, .us-clock{
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    /* border: 0px solid teal; */
-    position: relative;
-    box-shadow: 0 1vw 3.5vw -1vw teal;
-    cursor: pointer;
+.clock,
+.us-clock {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  /* border: 0px solid teal; */
+  position: relative;
+  box-shadow: 0 1vw 3.5vw -1vw rgb(1, 161, 161);
+  cursor: pointer;
 }
 
-.us-clock{
+.us-clock {
   margin-right: 2%;
 }
 
-.dot{
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #ccc;
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ccc;
 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
 }
 
-.hour-hand, .us-hour-hand{
+.hour-hand,
+.us-hour-hand {
+  position: absolute;
+  z-index: 5;
+  width: 4px;
+  height: 65px;
+  background: #000;
+  top: 79px;
+  left: 50%;
+  transform-origin: 50% 72px;
+  margin-left: -2px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.minute-hand,
+.us-minute-hand {
+  position: absolute;
+  z-index: 6;
+  width: 4px;
+  height: 100px;
+  background: gold;
+  top: 46px;
+  left: 50%;
+  margin-left: -2px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  transform-origin: 50% 105px;
+}
+
+.second-hand,
+.us-second-hand {
+  position: absolute;
+  z-index: 7;
+  width: 2px;
+  height: 120px;
+  background: rgb(255, 0, 0);
+  top: 26px;
+  lefT: 50%;
+  margin-left: -1px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  transform-origin: 50% 125px;
+}
+
+span {
+  display: inline-block;
+  position: absolute;
+  color: #333;
+  font-size: 22px;
+  font-family: 'Poiret One';
+  font-weight: 700;
+  z-index: 4;
+}
+
+.h3,
+.h6,
+.h9,
+.h12 {
+  color: teal;
+}
+
+.h3 {
+  position: absolute;
+  right: 2%;
+  top: 48%;
+}
+
+.h6 {
+  position: absolute;
+  left: 49%;
+  bottom: 2%;
+}
+
+.h9 {
+  position: absolute;
+  left: 2%;
+  top: 48%;
+}
+
+.h12 {
+  position: absolute;
+  left: 49%;
+  top: 2%;
+}
+
+/* Digital Clock */
+.digital-clock {
+  width: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.us-digital-clock {
+  width: inherit;
+}
+
+.us-date-container {
+  width: inherit;
+}
+
+.time {
+  font-size: 2rem;
+  font-family: anton;
+  width: auto;
+  padding: 20px;
+  margin-left: -2%;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px teal;
+}
+
+/* Date Display */
+.date-container {
+  width: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.date {
+  font-size: 2rem;
+  font-family: anton;
+  width: auto;
+  padding: 20px;
+  margin-left: -2%;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px teal;
+}
+
+.day {
+  color: teal;
+  font-weight: bolder;
+  font-size: 26px;
+}
+
+.time-zone {
+  margin-left: 20%;
+  font-size: 22px;
+  font-weight: bolder;
+  text-shadow: 1px 1px 5px teal;
+}
+
+@media only screen and (max-width: 700px) {
+  .digital-clock {
+    width: 100%;
+    text-align: center;
+  }
+
+  .date-container {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .digital-clock {
+    width: 100%;
+    text-align: center;
+  }
+
+  .date-container {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Dark Theme */
+@media screen and (prefers-color-scheme: dark) {
+
+  .hour-hand,
+  .us-hour-hand {
     position: absolute;
-    z-index: 5; 
+    z-index: 5;
     width: 4px;
     height: 65px;
-    background: #000;
+    background: #fff;
     top: 79px;
     left: 50%;
     transform-origin: 50% 72px;
     margin-left: -2px;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-}   
-
-.minute-hand, .us-minute-hand{
-    position:absolute;
-    z-index: 6;
-    width: 4px;
-    height: 100px;
-    background: gold;
-    top: 46px;
-    left: 50%;
-    margin-left: -2px;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    transform-origin: 50% 105px;
-}
-
-.second-hand,.us-second-hand{
-    position: absolute;
-    z-index: 7;
-    width: 2px;
-    height: 120px;
-    background: rgb(255, 0, 0);
-    top: 26px;
-    lefT: 50%;
-    margin-left: -1px;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    transform-origin: 50% 125px;
-}
-
-span {
-    display: inline-block;
-    position: absolute;
-    color: #333;
-    font-size: 22px;
-    font-family: 'Poiret One';
-    font-weight: 700;
-    z-index: 4;
   }
 
   .h3, .h6, .h9, .h12{
-    color : teal;
+    color: #fff;
   }
-
-  .h3{
-    position: absolute;
-    right: 2%;
-    top : 48%;
+  .us-label, .ist-label{
+    color: #e2e0e0;
   }
-  .h6{
-    position: absolute;
-    left : 49%;
-    bottom: 2%;
-  }
-  .h9{
-    position: absolute;
-    left: 2%;
-    top:48%;
-  }
-  
-  .h12{
-    position: absolute;
-    left: 49%;
-    top: 2%;
-  }
-
-  /* Digital Clock */
-  .digital-clock{
-    width: inherit;
-    text-align: center;
-    cursor: pointer;
-  }
-  .us-digital-clock{
-    width: inherit;
-  }
-  .us-date-container{
-    width: inherit;
-  }
-  .time{
-    font-size: 2rem;
-    font-family: anton;
-    width: auto;
-    padding: 20px;
-    margin-left: -2%;
-    border-radius: 10px;
-    box-shadow: 0px 10px 30px teal;
-  }
-
-  /* Date Display */
-  .date-container{
-    width: inherit;
-    text-align: center;
-    cursor: pointer;
-  }
-
-  .date{
-    font-size: 2rem;
-    font-family: anton;
-    width: auto;
-    padding: 20px;
-    margin-left: -2%;
-    border-radius: 10px;
-    box-shadow: 0px 10px 30px teal;
-  }
-
-  .day{
-    color: teal;
-    font-weight: bolder;
-    font-size: 26px;
-  }
-  .time-zone{
-    margin-left: 20%;
-    font-size: 22px;
-    font-weight: bolder;
-    text-shadow: 1px 1px 5px teal;
-  }
-
-  @media only screen and (max-width: 700px) {
-    .digital-clock{
-      width: 100%;
-      text-align: center;
-    }
-
-    .date-container{
-      width: 100%;
-      text-align: center;
-    }
-  }
-  @media only screen and (max-width: 500px) {
-    .digital-clock{
-      width: 100%;
-      text-align: center;
-    }
-
-    .date-container{
-      width: 100%;
-      text-align: center;
-    }
-  }
+}
