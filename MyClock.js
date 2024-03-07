@@ -16,6 +16,30 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 
 // ----------------------------------------------------------------------------------------------------
+// Get Hour hand at what degree it has to rotate
+function getClockProperties(date){
+    let h = date.getHours();
+    let m = date.getMinutes();
+    let s = date.getSeconds(); 
+
+    let hDeg = (h * 30) + (m * 1/2) + (s * 1/120) // h * 30 + m * (360/720);
+    let mDeg = (m * 6) + (s * (6/60));
+    let sDeg = (s * 6);
+
+    let amOrPm = (h < 12)?'AM' : 'PM';
+
+    let rotationDegrees = {
+        "h" : h,
+        "m" : m,
+        "s" : s,
+        "hDeg" : hDeg,
+        "mDeg" : mDeg,
+        "sDeg" : sDeg,
+        "amOrpm" : amOrPm
+    }
+    return rotationDegrees;
+}
+
 // Get Day of Week  
 function getDayOfWeek(dayOfWeekInNumber){
     let dayOfWeek;
@@ -35,55 +59,40 @@ function getDayOfWeek(dayOfWeekInNumber){
 // IST (Indian Standard Time)
 function istClock(){
     let d = new Date();
-    let h = d.getHours();
-    let m = d.getMinutes();
-    let s = d.getSeconds();
-
-    let hDeg = (h * 30) + (m * 1/2) + (s * 1/120) // h * 30 + m * (360/720);
-    let mDeg = (m * 6) + (s * (6/60));
-    let sDeg = (s * 6);
-
+    let rotationDegreesObject = getClockProperties(d);
     let hHand = document.querySelector('.hour-hand');
-    hHand.style.webkitTransform  = `rotate(${hDeg}deg)`;
+    hHand.style.webkitTransform  = `rotate(${rotationDegreesObject["hDeg"]}deg)`;
 
     let mHand = document.querySelector('.minute-hand');
-    mHand.style.webkitTransform  = `rotate(${mDeg}deg)`;
+    mHand.style.webkitTransform  = `rotate(${rotationDegreesObject["mDeg"]}deg)`;
 
     let sHand = document.querySelector('.second-hand');
-    sHand.style.webkitTransform  = `rotate(${sDeg}deg)`;
+    sHand.style.webkitTransform  = `rotate(${rotationDegreesObject["sDeg"]}deg)`;
 
     // For Digital Clock
     let placeForDigitalclock = document.querySelector('#time');
-    let amOrPm = (h < 12)?'AM' : 'PM';
-    placeForDigitalclock.innerHTML = `${h} : ${m} : ${s}  ${amOrPm}`;
+    placeForDigitalclock.innerHTML = `${rotationDegreesObject["h"]} : ${rotationDegreesObject["m"]} : ${rotationDegreesObject["s"]}  ${rotationDegreesObject["amOrpm"]}`;
 }
 
 // en-us (New- York TIme zone)
 function usClock(){
     let date = new Date(); // Getting the current date & Time
-    let usDateTime = date.toLocaleString('en-us',{timeZone : 'America/New_York'});
+    let usDateTime = date.toLocaleString('en-us',{timeZone : 'America/New_York'}); // Converting to US-NewYork TIme zone
     let d = new Date(usDateTime);
-    let h = d.getHours();
-    let m = d.getMinutes();
-    let s = d.getSeconds();
-
-    let hDeg = (h * 30) + (m * 1/2) + (s * 1/120) // h * 30 + m * (360/720);
-    let mDeg = (m * 6) + (s * (6/60));
-    let sDeg = (s * 6);
+    let rotationDegreesObject = getClockProperties(d);
 
     let hHand = document.querySelector('.us-hour-hand');
-    hHand.style.webkitTransform  = `rotate(${hDeg}deg)`;
+    hHand.style.webkitTransform  = `rotate(${rotationDegreesObject["hDeg"]}deg)`;
 
     let mHand = document.querySelector('.us-minute-hand');
-    mHand.style.webkitTransform  = `rotate(${mDeg}deg)`;
+    mHand.style.webkitTransform  = `rotate(${rotationDegreesObject["mDeg"]}deg)`;
 
     let sHand = document.querySelector('.us-second-hand');
-    sHand.style.webkitTransform  = `rotate(${sDeg}deg)`;
+    sHand.style.webkitTransform  = `rotate(${rotationDegreesObject["sDeg"]}deg)`;
 
     //For Digital Clock
     let placeForDigitalclock = document.querySelector('.us-digital-clock #time');
-    let amOrPm = (h < 12)?'AM' : 'PM';
-    placeForDigitalclock.innerHTML = `${h} : ${m} : ${s}  ${amOrPm}`;
+    placeForDigitalclock.innerHTML = `${rotationDegreesObject["h"]} : ${rotationDegreesObject["m"]} : ${rotationDegreesObject["s"]}  ${rotationDegreesObject["amOrpm"]}`;
 }
 
 function istDisplayDate(){
@@ -111,7 +120,6 @@ function usDisplayDate(){
 
     let dayOfWeekInNumber = date.getDay();  // Day of the week
     let dayOfWeek = getDayOfWeek(dayOfWeekInNumber);
-    //console.log(dayOfWeek);
 
     let placeForDate = document.querySelector('.us-date-container #date');
     placeForDate.innerHTML = `${day}-${month + 1}-${fullyear}  <div class="day">${dayOfWeek}</div>`;
