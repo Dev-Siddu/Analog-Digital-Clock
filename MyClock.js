@@ -1,3 +1,37 @@
+// Main Content
+document.addEventListener('DOMContentLoaded',function(){
+    istClock();    // Executing before setting the interval for clock
+    setInterval(istClock,1000);
+
+    usClock();
+    setInterval(usClock,1000);
+
+    istDisplayDate();  // Executing befor esetting the inteval for displayDate
+    setInterval(istDisplayDate,1000*60*60*24,)
+
+    //DIsplay Us date
+    usDisplayDate();
+    setInterval(usDisplayDate,1000*60*60*24,)
+
+});
+
+// ----------------------------------------------------------------------------------------------------
+// Get Day of Week  
+function getDayOfWeek(dayOfWeekInNumber){
+    let dayOfWeek;
+    switch(dayOfWeekInNumber){
+        case 1 : dayOfWeek = 'Monday'; break;
+        case 2 : dayOfWeek = 'Tuesday'; break;
+        case 3 : dayOfWeek = 'Wednesday'; break;
+        case 4 : dayOfWeek = 'Thursday'; break;
+        case 5 : dayOfWeek = 'Friday'; break;
+        case 6 : dayOfWeek = 'Saturday'; break;
+        case 7 : dayOfWeek = 'Sunday'; break;
+    }
+    return dayOfWeek;
+}
+
+
 // IST (Indian Standard Time)
 function istClock(){
     let d = new Date();
@@ -8,8 +42,6 @@ function istClock(){
     let hDeg = (h * 30) + (m * 1/2) + (s * 1/120) // h * 30 + m * (360/720);
     let mDeg = (m * 6) + (s * (6/60));
     let sDeg = (s * 6);
-
-    // console.log(hDeg + " " + mDeg + " " + sDeg);
 
     let hHand = document.querySelector('.hour-hand');
     hHand.style.webkitTransform  = `rotate(${hDeg}deg)`;
@@ -39,8 +71,6 @@ function usClock(){
     let mDeg = (m * 6) + (s * (6/60));
     let sDeg = (s * 6);
 
-    // console.log(hDeg + " " + mDeg + " " + sDeg);
-
     let hHand = document.querySelector('.us-hour-hand');
     hHand.style.webkitTransform  = `rotate(${hDeg}deg)`;
 
@@ -64,17 +94,8 @@ function istDisplayDate(){
     let fullyear = date.getFullYear(); // Current Year
 
     let dayOfWeekInNumber = date.getDay();  // Day of the week
-    let dayOfWeek;
-    switch(dayOfWeekInNumber){
-        case 1 : dayOfWeek = 'Monday'; break;
-        case 2 : dayOfWeek = 'Tuesday'; break;
-        case 3 : dayOfWeek = 'Wednesday'; break;
-        case 4 : dayOfWeek = 'Thursday'; break;
-        case 5 : dayOfWeek = 'Friday'; break;
-        case 6 : dayOfWeek = 'Saturday'; break;
-        case 7 : dayOfWeek = 'Sunday'; break;
-    }
-    //console.log(dayOfWeek);
+    let dayOfWeek = getDayOfWeek(dayOfWeekInNumber);
+
     let placeForDate = document.querySelector('.date-container #date');
     placeForDate.innerHTML = `${day}-${month + 1}-${fullyear}  <div class="day">${dayOfWeek}</div>`;
 };
@@ -89,34 +110,9 @@ function usDisplayDate(){
     let fullyear = date.getFullYear(); // Current Year
 
     let dayOfWeekInNumber = date.getDay();  // Day of the week
-    let dayOfWeek;
-    switch(dayOfWeekInNumber){
-        case 1 : dayOfWeek = 'Monday'; break;
-        case 2 : dayOfWeek = 'Tuesday'; break;
-        case 3 : dayOfWeek = 'Wednesday'; break;
-        case 4 : dayOfWeek = 'Thursday'; break;
-        case 5 : dayOfWeek = 'Friday'; break;
-        case 6 : dayOfWeek = 'Saturday'; break;
-        case 7 : dayOfWeek = 'Sunday'; break;
-    }
+    let dayOfWeek = getDayOfWeek(dayOfWeekInNumber);
     //console.log(dayOfWeek);
+
     let placeForDate = document.querySelector('.us-date-container #date');
     placeForDate.innerHTML = `${day}-${month + 1}-${fullyear}  <div class="day">${dayOfWeek}</div>`;
 };
-
-// Miain Content
-document.addEventListener('DOMContentLoaded',function(){
-    istClock();    // Executing before setting the interval for clock
-    setInterval(istClock,1000);
-
-    usClock();
-    setInterval(usClock,1000);
-
-    istDisplayDate();  // Executing befor esetting the inteval for displayDate
-    setInterval(istDisplayDate,1000*60*60*24,)
-
-    // To Do : DIsplay Us date
-    usDisplayDate();
-    setInterval(usDisplayDate,1000*60*60*24,)
-
-});
